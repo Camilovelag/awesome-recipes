@@ -1,13 +1,31 @@
 import React from 'react';
-import apiAutoComplete, { apiRecipe } from '../redux/recipes/ApiRecipes';
+import { useDispatch, useSelector } from 'react-redux';
+import RecipePreview from '../components/recipePreview';
 
-const Home = () => (
-  <div>
-    <h1>Home</h1>
-    <button type="button" onClick={apiAutoComplete}>Auto-complete</button>
-    <button type="button" onClick={apiRecipe}>Recipe</button>
+import { getRecipes } from '../redux/recipes/recipesSlice';
 
-  </div>
-);
+const Home = () => {
+  const dispatch = useDispatch();
+  const recipes = useSelector((state) => state.recipesReducer.recipes);
+  if (recipes.length === 0) {
+    dispatch(getRecipes());
+  }
+
+  const recipesList = recipes.map((recipe) => (
+    <RecipePreview
+      key={recipe.id}
+      id={recipe.id}
+      title={recipe.title}
+      image={recipe.image}
+    />
+  ));
+
+  return (
+    <div>
+      <h1>Home</h1>
+      {recipesList}
+    </div>
+  );
+};
 
 export default Home;

@@ -17,16 +17,19 @@ const apiAutoComplete = async () => {
   }
 };
 
-const apiRecipe = async () => {
-  try {
-    const response = await fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=chicken%20noodle%20soup', options);
-    const data = await response.json();
-    data.results.forEach((item) => (console.log(item.name)));
-    // console.log(data.results);
-  } catch (error) {
-    console.error(error);
-  }
+const apiRecipes = async () => {
+  const response = await fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=chicken%20noodle%20soup', options);
+  const data = await response.json();
+  const recipes = data.results.map((recipe) => ({
+    id: recipe.id,
+    title: recipe.name,
+    image: recipe.thumbnail_url,
+    description: recipe.description,
+  }));
+  console.log(recipes);
+  // console.log(data.results);
+  return recipes;
 };
 
 export default apiAutoComplete;
-export { apiRecipe };
+export { apiRecipes };
