@@ -1,15 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import RecipePreview from '../components/recipePreview';
+import { useSelector } from 'react-redux';
 
-import { getRecipes } from '../redux/recipes/recipesSlice';
+import RecipePreview from '../components/RecipePreview';
+import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
-  const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipesReducer.recipes);
-  if (recipes.length === 0) {
-    dispatch(getRecipes());
-  }
 
   const recipesList = recipes.map((recipe) => (
     <RecipePreview
@@ -23,6 +19,7 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
+      <SearchRecipe />
       {recipesList}
     </div>
   );
