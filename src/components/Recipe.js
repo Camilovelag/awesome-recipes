@@ -10,20 +10,19 @@ const Recipe = (props) => {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    userRatings: PropTypes.isRequired,
-    yields: PropTypes.arrayOf(PropTypes.number).isRequired,
+    userRatings: PropTypes.objectOf(PropTypes.number).isRequired,
+    yields: PropTypes.string.isRequired,
     instructions: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
-  console.log(userRatings, yields, instructions);
-
   const { count_positive: positive, count_negative: negative, score } = userRatings;
+
   const instructionList = instructions.map((instruction) => (
     <li key={instruction.id}>{instruction.display_text}</li>
   ));
 
   return (
-    <div className="recipe-preview">
+    <div>
       <img src={image} alt={title} style={{ width: 250 }} />
       <h1>{title}</h1>
       <span>

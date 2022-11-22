@@ -8,32 +8,20 @@ const options = {
   },
 };
 
-const apiAutoComplete = async () => {
-  try {
-    const response = await fetch('https://tasty.p.rapidapi.com/recipes/auto-complete?prefix=chicken%20soup', options);
-    const data = await response.json();
-    data.results.forEach((item) => (console.log(item.display)));
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const apiRecipes = async (search = 'trendy') => {
+const apiRecipes = async (search) => {
   const query = search.replace(' ', '%20');
   const response = await fetch(`${url}list?from=0&size=20&q=${query}`, options);
   const data = await response.json();
   const recipes = data.results.map((recipe) => ({
     id: recipe.id,
-    title: recipe.name,
+    title: recipe.name || 'No title available',
     image: recipe.thumbnail_url,
-    description: recipe.description,
+    description: recipe.description || 'No description available',
     user_ratings: recipe.user_ratings,
-    yields: recipe.yields,
-    instructions: recipe.instructions,
+    yields: recipe.yields || 'No yield information available',
+    instructions: recipe.instructions || [{ display_text: 'No instructions available' }],
   }));
-  console.log(data.results);
   return recipes;
 };
 
-export default apiAutoComplete;
-export { apiRecipes };
+export default apiRecipes;
