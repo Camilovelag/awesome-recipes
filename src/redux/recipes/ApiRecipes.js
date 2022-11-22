@@ -27,8 +27,11 @@ const apiRecipes = async (search = 'trendy') => {
     title: recipe.name,
     image: recipe.thumbnail_url,
     description: recipe.description,
+    user_ratings: recipe.user_ratings,
+    yields: recipe.yields,
+    instructions: recipe.instructions,
   }));
-  console.log(recipes);
+  console.log(data.results);
   return recipes;
 };
 
