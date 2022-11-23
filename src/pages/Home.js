@@ -1,18 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Row } from 'react-bootstrap';
 
+import {
+  sortByPositive, sortByScore, sortByTitle, viewByAll, viewByPositive, viewByScore,
+} from '../redux/recipes/recipesSlice';
 import RecipePreview from '../components/RecipePreview';
 import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
   const recipes = useSelector((state) => state.persistedReducer.recipes);
+  const dispatch = useDispatch();
   console.log(recipes);
 
   const recipesList = recipes.map((recipe) => (
     <Row key={recipe.id}>
-      { recipe.user_ratings && recipe.instructions && (
       <Link to={`/recipes/${recipe.id}`}>
         <RecipePreview
           id={recipe.id}
@@ -21,7 +24,6 @@ const Home = () => {
           userRatings={recipe.user_ratings}
         />
       </Link>
-      )}
     </Row>
   ));
 
@@ -29,6 +31,14 @@ const Home = () => {
     <div>
       <h1>Home</h1>
       <SearchRecipe />
+      <p>Sort:</p>
+      <button type="button" onClick={() => dispatch(sortByTitle())}>A-Z</button>
+      <button type="button" onClick={() => dispatch(sortByScore())}>Higher score</button>
+      <button type="button" onClick={() => dispatch(sortByPositive())}>Most popular</button>
+      <p>View:</p>
+      <button type="button" onClick={() => dispatch(viewByAll())}>All</button>
+      <button type="button" onClick={() => dispatch(viewByScore())}>Score</button>
+      <button type="button" onClick={() => dispatch(viewByPositive())}>Rating</button>
       {recipesList}
     </div>
   );

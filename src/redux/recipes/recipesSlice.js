@@ -9,9 +9,38 @@ const recipesReducer = createSlice({
     loading: false,
     recipes: [],
     error: '',
+    view: 'all',
   },
   reducers: {
-    // Add your reducers here
+    sortByScore: (state) => {
+      state.recipes.sort((a, b) => b.user_ratings.score - a.user_ratings.score);
+    },
+    sortByPositive: (state) => {
+      state.recipes.sort((a, b) => b.user_ratings.count_positive - a.user_ratings.count_positive);
+    },
+    sortByTitle: (state) => {
+      state.recipes.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    },
+    viewByPositive: (state) => ({
+      ...state,
+      view: 'positive',
+    }),
+    viewByScore: (state) => ({
+      ...state,
+      view: 'score',
+    }),
+    viewByAll: (state) => ({
+      ...state,
+      view: 'all',
+    }),
   },
   extraReducers: (builder) => {
     builder.addCase(getRecipes.pending, (state) => ({
@@ -34,3 +63,7 @@ const recipesReducer = createSlice({
 
 export default recipesReducer.reducer;
 export { getRecipes };
+export const {
+  sortByScore, sortByPositive, sortByTitle,
+  viewByPositive, viewByAll, viewByScore,
+} = recipesReducer.actions;

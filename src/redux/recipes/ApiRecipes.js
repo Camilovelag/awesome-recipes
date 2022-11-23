@@ -21,7 +21,7 @@ const apiRecipes = async (search) => {
     yields: recipe.yields || 'No yield information available',
     instructions: recipe.instructions || [{ display_text: 'No instructions available' }],
   }));
-  return recipes;
+  return recipes.filter((recipe) => recipe.user_ratings !== undefined);
 };
 
 export default apiRecipes;
