@@ -10,7 +10,8 @@ import RecipePreview from '../components/RecipePreview';
 import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
-  const recipes = useSelector((state) => state.persistedReducer.recipes);
+  const { recipes, noResults, loading } = useSelector((state) => state.persistedReducer);
+
   const dispatch = useDispatch();
   console.log(recipes);
 
@@ -31,15 +32,25 @@ const Home = () => {
     <div>
       <h1>Home</h1>
       <SearchRecipe />
-      <p>Sort:</p>
-      <button type="button" onClick={() => dispatch(sortByTitle())}>A-Z</button>
-      <button type="button" onClick={() => dispatch(sortByScore())}>Higher score</button>
-      <button type="button" onClick={() => dispatch(sortByPositive())}>Most popular</button>
-      <p>View:</p>
-      <button type="button" onClick={() => dispatch(viewByAll())}>All</button>
-      <button type="button" onClick={() => dispatch(viewByScore())}>Score</button>
-      <button type="button" onClick={() => dispatch(viewByPositive())}>Rating</button>
-      {recipesList}
+      {recipes.length > 0 && loading === false && (
+        <div className="info">
+          <div className="sort-buttons">
+            <p>Sort by: </p>
+            <button type="button" onClick={() => dispatch(sortByTitle())}>A-Z</button>
+            <button type="button" onClick={() => dispatch(sortByScore())}>Higher score</button>
+            <button type="button" onClick={() => dispatch(sortByPositive())}>Most popular</button>
+          </div>
+          <div className="view-buttons">
+            <p>View: </p>
+            <button type="button" onClick={() => dispatch(viewByAll())}>All</button>
+            <button type="button" onClick={() => dispatch(viewByScore())}>Score</button>
+            <button type="button" onClick={() => dispatch(viewByPositive())}>Rating</button>
+          </div>
+          {recipesList}
+        </div>
+      )}
+      <div>{loading && (<span>Loading, please wait...</span>)}</div>
+      <div>{noResults && loading === false && (<span>No results found!</span>)}</div>
     </div>
   );
 };
