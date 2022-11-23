@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
 
 const Recipe = (props) => {
   const {
@@ -16,7 +17,7 @@ const Recipe = (props) => {
   };
 
   const { count_positive: positive, count_negative: negative, score } = userRatings;
-
+  const parsedDescription = parse(description);
   const instructionList = instructions.map((instruction) => (
     <li key={instruction.id}>{instruction.display_text}</li>
   ));
@@ -37,7 +38,7 @@ const Recipe = (props) => {
         { (score * 10).toFixed(1) }
         /10
       </p>
-      <p>{description}</p>
+      <p>{parsedDescription}</p>
       <h3>Instructions</h3>
       <ul>
         {instructionList}

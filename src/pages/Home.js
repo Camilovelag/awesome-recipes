@@ -11,9 +11,7 @@ import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
   const { recipes, noResults, loading } = useSelector((state) => state.persistedReducer);
-
   const dispatch = useDispatch();
-  console.log(recipes);
 
   const recipesList = recipes.map((recipe) => (
     <Row key={recipe.id}>
