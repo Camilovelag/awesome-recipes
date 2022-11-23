@@ -7,7 +7,8 @@ import RecipePreview from '../components/RecipePreview';
 import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
-  const recipes = useSelector((state) => state.recipesReducer.recipes);
+  const recipes = useSelector((state) => state.persistedReducer.recipes);
+  console.log(recipes);
 
   const recipesList = recipes.map((recipe) => (
     <Row key={recipe.id}>
@@ -22,7 +23,6 @@ const Home = () => {
       </Link>
       )}
     </Row>
-
   ));
 
   return (
