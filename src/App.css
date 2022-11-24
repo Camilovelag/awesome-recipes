@@ -43,3 +43,15 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.navbar-light .navbar-brand {
+  color: #fff;
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.1rem #a4a4a4;
+}

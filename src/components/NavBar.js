@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 const NavigationBar = () => (
   <Navbar className="bg-fuchsia p-3" expand="md">
     <LinkContainer to="/">
-      <Navbar.Brand>Your Awesome Recipes</Navbar.Brand>
+      <Navbar.Brand className="offset-1">Your Awesome Recipes</Navbar.Brand>
     </LinkContainer>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">

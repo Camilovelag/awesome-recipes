@@ -26,7 +26,7 @@ const SearchRecipe = () => {
 
   return (
     <Form className="bg-fuchsia-2 px-4 py-2" onSubmit={handleSubmit}>
-      <p className="mb-1">Today I&apos;m tempted to...</p>
+      <p className="mb-1">Today I&apos;m tempted to taste...</p>
       <Form.Group>
         <Row>
           <Col className="offset-1" xs={8} md={7} lg={6}>

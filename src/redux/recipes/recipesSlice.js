@@ -58,6 +58,8 @@ const recipesReducer = createSlice({
       loading: false,
       recipes: action.payload,
       noResults: action.payload.length === 0,
+      view: 'all',
+      sort: '',
     }));
     builder.addCase(getRecipes.rejected, (state, action) => ({
       ...state,

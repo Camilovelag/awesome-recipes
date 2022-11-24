@@ -23,7 +23,6 @@ const apiRecipes = async (search) => {
     instructions: recipe.instructions || [{ display_text: 'No instructions available' }],
     ingredients: recipe.sections || [],
   }));
-  console.log(recipes);
   return recipes.filter((recipe) => recipe.user_ratings !== undefined);
 };
 
