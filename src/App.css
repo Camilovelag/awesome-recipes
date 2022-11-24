@@ -1,9 +1,22 @@
 html * {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: #000;
+}
+
+body {
+  background-color: #212529;
   color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .bg-fuchsia {
   background-color: #ff0080;
+}
+
+.bg-fuchsia-2 {
+  background-color: #e60073;
 }
