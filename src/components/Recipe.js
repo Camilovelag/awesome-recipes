@@ -43,7 +43,7 @@ const Recipe = (props) => {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>
-              <Row>
+              <Row className="pb-4 center">
                 <span className="d-flex align-items-center gap-2">
                   <BiLike />
                   {positive}
@@ -58,14 +58,18 @@ const Recipe = (props) => {
                 </span>
                 <p>{parsedDescription}</p>
               </Row>
-              <h3>Ingredients</h3>
-              <ul>
-                {ingredientList}
-              </ul>
-              <h3>Instructions</h3>
-              <ol>
-                {instructionList}
-              </ol>
+              <Row className="pb-4">
+                <h3 className="center pb-1">Ingredients</h3>
+                <ul>
+                  {ingredientList}
+                </ul>
+              </Row>
+              <Row>
+                <h3 className="center pb-1">Instructions</h3>
+                <ol>
+                  {instructionList}
+                </ol>
+              </Row>
             </Card.Text>
           </Card.Body>
         </Col>
