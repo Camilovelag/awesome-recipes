@@ -25,29 +25,27 @@ const SearchRecipe = () => {
   };
 
   return (
-    <div className="search-bar bg-fuchsia-2 p-3">
-      <p>Today I&apos;m tempted for...</p>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Row className="justify-content-start">
-            <Col xs={9} md={8} lg={7}>
-              <Form.Control
-                type="text"
-                name="title"
-                onChange={handleChange}
-                placeholder="Today I&apos;m tempted for..."
-                required
-              />
-            </Col>
-            <Col>
-              <Button type="submit" variant="light">
-                <BiSearch />
-              </Button>
-            </Col>
-          </Row>
-        </Form.Group>
-      </Form>
-    </div>
+    <Form className="bg-fuchsia-2 px-4 py-2" onSubmit={handleSubmit}>
+      <p>Today I&apos;m tempted to...</p>
+      <Form.Group>
+        <Row>
+          <Col className="offset-1" xs={8} md={7} lg={6}>
+            <Form.Control
+              type="text"
+              name="title"
+              onChange={handleChange}
+              placeholder="type a dish name (e.g. burritos)"
+              required
+            />
+          </Col>
+          <Col>
+            <Button type="submit" variant="light">
+              <BiSearch />
+            </Button>
+          </Col>
+        </Row>
+      </Form.Group>
+    </Form>
   );
 };
 

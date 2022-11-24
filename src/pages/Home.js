@@ -32,49 +32,49 @@ const Home = () => {
     switch (e.target.name) {
       case 'positive':
         dispatch(sortByPositive());
-        dispatch(updateSort('positive'));
         break;
       case 'score':
         dispatch(sortByScore());
-        dispatch(updateSort('score'));
         break;
       case 'title':
         dispatch(sortByTitle());
-        dispatch(updateSort('title'));
         break;
       default:
         break;
     }
+    dispatch(updateSort(e.target.name));
   };
 
   return (
     <Container fluid>
-      <SearchRecipe />
+      <Row>
+        <SearchRecipe />
+      </Row>
       {recipes.length > 0 && loading === false && (
-        <Row className="bg-fuchsia p-3">
-          <Col sm={6} className="sort-buttons">
+        <Row className="bg-fuchsia p-2">
+          <Col sm={6} className="center gap-1 mb-2">
             <p>Sort by: </p>
-            <Button variant={sort === 'title' ? 'dark' : 'light'} type="button" name="title" onClick={handleSort}>A-Z</Button>
-            <Button variant={sort === 'score' ? 'dark' : 'light'} type="button" name="score" onClick={handleSort}>High score</Button>
-            <Button variant={sort === 'positive' ? 'dark' : 'light'} type="button" name="positive" onClick={handleSort}>Most popular</Button>
+            <Button size="sm" variant={sort === 'title' ? 'dark' : 'light'} type="button" name="title" onClick={handleSort}>A-Z</Button>
+            <Button size="sm" variant={sort === 'score' ? 'dark' : 'light'} type="button" name="score" onClick={handleSort}>High score</Button>
+            <Button size="sm" variant={sort === 'positive' ? 'dark' : 'light'} type="button" name="positive" onClick={handleSort}>Most popular</Button>
           </Col>
-          <Col sm={6} className="">
+          <Col sm={6} className="center gap-1">
             <p>View stats: </p>
-            <Button variant={view === 'all' ? 'dark' : 'light'} type="button" onClick={() => dispatch(viewByAll())}>All</Button>
-            <Button variant={view === 'score' ? 'dark' : 'light'} type="button" onClick={() => dispatch(viewByScore())}>Score</Button>
-            <Button variant={view === 'positive' ? 'dark' : 'light'} type="button" onClick={() => dispatch(viewByPositive())}>Likes</Button>
+            <Button size="sm" variant={view === 'all' ? 'dark' : 'light'} type="button" onClick={() => dispatch(viewByAll())}>All</Button>
+            <Button size="sm" variant={view === 'score' ? 'dark' : 'light'} type="button" onClick={() => dispatch(viewByScore())}>Score</Button>
+            <Button size="sm" variant={view === 'positive' ? 'dark' : 'light'} type="button" onClick={() => dispatch(viewByPositive())}>Likes</Button>
           </Col>
         </Row>
       )}
-      <div>{loading && (<span>Loading, please wait...</span>)}</div>
-      <div>{noResults && loading === false && (<span>No results found!</span>)}</div>
-      <div className="bg-dark d-flex justify-content-center px-auto">
+      <Row>{loading && (<span>Loading, please wait...</span>)}</Row>
+      <Row>{noResults && loading === false && (<span>No results found!</span>)}</Row>
+      <Row className="bg-dark">
         {loading === false && (
-          <CardGroup className="my-3" style={{ width: '95vw' }}>
+          <CardGroup className="my-3 center">
             {recipesList}
           </CardGroup>
         )}
-      </div>
+      </Row>
     </Container>
   );
 };

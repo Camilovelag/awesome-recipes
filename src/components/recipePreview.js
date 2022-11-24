@@ -27,7 +27,7 @@ const RecipePreview = (props) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
-          <div>
+          <span>
             {(view === 'positive' || view === 'all') && (
               <span className="d-flex align-items-center gap-2">
                 <BiLike />
@@ -43,7 +43,7 @@ const RecipePreview = (props) => {
                 /10
               </span>
             )}
-          </div>
+          </span>
         </Card.Text>
       </Card.Body>
     </Card>

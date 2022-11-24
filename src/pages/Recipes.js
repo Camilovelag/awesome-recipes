@@ -12,9 +12,9 @@ const Recipes = () => {
   const recipeItem = recipesList.find((recipe) => recipe.id === parseInt(id, 10));
 
   return (
-    <Container className="mx-5 my-4" fluid>
+    <Container fluid>
       <Row>
-        <Col>
+        <Col className="center my-3">
           <Recipe
             title={recipeItem.title}
             image={recipeItem.image}
