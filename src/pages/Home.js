@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  Row, Col, Button, CardGroup, Container,
+  Row, Col, Button, CardGroup, Container, Spinner,
 } from 'react-bootstrap';
 
 import {
@@ -66,11 +66,15 @@ const Home = () => {
           </Col>
         </Row>
       )}
-      <Row>{loading && (<span>Loading, please wait...</span>)}</Row>
-      <Row>{noResults && loading === false && (<span>No results found!</span>)}</Row>
+      <Row className="center mt-5">
+        {loading && (
+        <Spinner animation="border" role="status" />
+        )}
+      </Row>
+      <Row>{noResults && loading === false && (<span className="center">No results found!</span>)}</Row>
       <Row className="bg-dark">
         {loading === false && (
-          <CardGroup className="my-3 center">
+          <CardGroup className="center">
             {recipesList}
           </CardGroup>
         )}

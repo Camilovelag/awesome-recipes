@@ -22,6 +22,7 @@ const Recipes = () => {
             userRatings={recipeItem.user_ratings}
             yields={recipeItem.yields}
             instructions={recipeItem.instructions}
+            ingredients={recipeItem.ingredients}
           />
           <Link to="/" className="back">
             <IoIosArrowBack />

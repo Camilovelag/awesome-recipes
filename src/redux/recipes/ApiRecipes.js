@@ -12,6 +12,7 @@ const apiRecipes = async (search) => {
   const query = search.replace(' ', '%20');
   const response = await fetch(`${url}list?from=0&size=20&q=${query}`, options);
   const data = await response.json();
+
   const recipes = data.results.map((recipe) => ({
     id: recipe.id,
     title: recipe.name || 'No title available',
@@ -20,7 +21,9 @@ const apiRecipes = async (search) => {
     user_ratings: recipe.user_ratings,
     yields: recipe.yields || 'No yield information available',
     instructions: recipe.instructions || [{ display_text: 'No instructions available' }],
+    ingredients: recipe.sections || [],
   }));
+  console.log(recipes);
   return recipes.filter((recipe) => recipe.user_ratings !== undefined);
 };
 

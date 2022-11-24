@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'html-react-parser';
 import {
-  Card, Container, Col, Row,
+  Card, Col, Row,
 } from 'react-bootstrap';
 import { BiLike, BiDislike } from 'react-icons/bi';
 import { BsStar } from 'react-icons/bs';
 
 const Recipe = (props) => {
   const {
-    title, image, description, userRatings, yields, instructions,
+    title, image, description, userRatings, yields, instructions, ingredients,
   } = props;
 
   Recipe.propTypes = {
@@ -19,37 +19,20 @@ const Recipe = (props) => {
     userRatings: PropTypes.objectOf(PropTypes.number).isRequired,
     yields: PropTypes.string.isRequired,
     instructions: PropTypes.arrayOf(PropTypes.string).isRequired,
+    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
   const { count_positive: positive, count_negative: negative, score } = userRatings;
   const parsedDescription = parse(description);
+
   const instructionList = instructions.map((instruction) => (
     <li key={instruction.id}>{instruction.display_text}</li>
   ));
 
-  // return (
-  //   <div>
-  //     <img src={image} alt={title} style={{ width: 250 }} />
-  //     <h1>{title}</h1>
-  //     <span>
-  //       {yields}
-  //     </span>
-  //     <p>
-  //       {'(+): '}
-  //       { positive }
-  //       {' (-): '}
-  //       { negative }
-  //       {' Score: '}
-  //       { (score * 10).toFixed(1) }
-  //       /10
-  //     </p>
-  //     <p>{parsedDescription}</p>
-  //     <h3>Instructions</h3>
-  //     <ul>
-  //       {instructionList}
-  //     </ul>
-  //   </div>
-  // );
+  const ingredientList = ingredients[0].components.map((ingredient) => (
+    <li key={ingredient.id}>{ingredient.raw_text}</li>
+  ));
+
   return (
     <Card bg="dark" text="light" style={{ width: '80vw' }}>
       <Row>
@@ -60,7 +43,7 @@ const Recipe = (props) => {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>
-              <Container fluid className="justify-content-center">
+              <Row>
                 <span className="d-flex align-items-center gap-2">
                   <BiLike />
                   {positive}
@@ -74,7 +57,11 @@ const Recipe = (props) => {
                   {yields}
                 </span>
                 <p>{parsedDescription}</p>
-              </Container>
+              </Row>
+              <h3>Ingredients</h3>
+              <ul>
+                {ingredientList}
+              </ul>
               <h3>Instructions</h3>
               <ol>
                 {instructionList}
