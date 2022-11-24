@@ -21,38 +21,6 @@ const RecipePreview = (props) => {
 
   const { count_positive: positive, count_negative: negative, score } = userRatings;
 
-  // return (
-  //   <div id={id} className="recipe-preview">
-  //     <img src={image} alt={title} style={{ width: 250 }} />
-  //     <h1>{title}</h1>
-  //     <div>
-  //       <div>
-  //         {
-  //         (view === 'positive' || view === 'all') && (
-  //           <span className="rating">
-  //             Likes:
-  //             {positive}
-  //             Dislikes:
-  //             {negative}
-  //           </span>
-  //         )
-  //       }
-  //       </div>
-  //       <div>
-  //         {
-  //         (view === 'score' || view === 'all') && (
-  //           <span className="score">
-  //             Score:
-  //             { (score * 10).toFixed(1) }
-  //             /10
-  //           </span>
-  //         )
-  //       }
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-
   return (
     <Card id={id} bg="dark" text="light" style={{ width: '18rem', height: '20rem' }}>
       <Card.Img variant="top" src={image} style={{ width: '18rem', height: '12rem', objectFit: 'cover' }} />

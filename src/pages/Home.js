@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  Row, Col, Button, CardGroup,
+  Row, Col, Button, CardGroup, Container,
 } from 'react-bootstrap';
 
 import {
@@ -48,10 +48,10 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <Container fluid>
       <SearchRecipe />
       {recipes.length > 0 && loading === false && (
-        <Row className="bg-fuchsia-2 p-3">
+        <Row className="bg-fuchsia p-3">
           <Col sm={6} className="sort-buttons">
             <p>Sort by: </p>
             <Button variant={sort === 'title' ? 'dark' : 'light'} type="button" name="title" onClick={handleSort}>A-Z</Button>
@@ -70,12 +70,12 @@ const Home = () => {
       <div>{noResults && loading === false && (<span>No results found!</span>)}</div>
       <div className="bg-dark d-flex justify-content-center px-auto">
         {loading === false && (
-          <CardGroup>
+          <CardGroup className="my-3" style={{ width: '95vw' }}>
             {recipesList}
           </CardGroup>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

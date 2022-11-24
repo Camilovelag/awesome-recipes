@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  Form, Button, Col, Row, Container,
+  Form, Button, Col, Row,
 } from 'react-bootstrap';
 import { BiSearch } from 'react-icons/bi';
 import { getRecipes, updateSort } from '../redux/recipes/recipesSlice';
@@ -25,7 +25,7 @@ const SearchRecipe = () => {
   };
 
   return (
-    <Container className="search-bar bg-fuchsia pb-3" fluid>
+    <div className="search-bar bg-fuchsia-2 p-3">
       <p>Today I&apos;m tempted for...</p>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
@@ -35,7 +35,7 @@ const SearchRecipe = () => {
                 type="text"
                 name="title"
                 onChange={handleChange}
-                placeholder="Search recipe"
+                placeholder="Today I&apos;m tempted for..."
                 required
               />
             </Col>
@@ -47,7 +47,7 @@ const SearchRecipe = () => {
           </Row>
         </Form.Group>
       </Form>
-    </Container>
+    </div>
   );
 };
 

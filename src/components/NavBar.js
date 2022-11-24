@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const NavigationBar = () => (
-  <Navbar className="bg-fuchsia" expand="md">
+  <Navbar className="bg-fuchsia p-3" expand="md" fluid>
     <Container fluid>
       <LinkContainer to="/">
         <Navbar.Brand>Your Awesome Recipes</Navbar.Brand>
