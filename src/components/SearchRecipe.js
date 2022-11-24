@@ -24,12 +24,12 @@ const SearchRecipe = () => {
   };
 
   return (
-    <Container className="search-bar bg-fuchsia pb-3">
+    <Container className="search-bar bg-fuchsia pb-3" fluid>
       <p>Today I&apos;m tempted for...</p>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Row className="justify-content-start">
-            <Col xs={9}>
+            <Col xs={9} md={8} lg={7}>
               <Form.Control
                 type="text"
                 name="title"
