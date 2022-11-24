@@ -11,8 +11,13 @@ const recipesReducer = createSlice({
     error: '',
     view: 'all',
     noResults: false,
+    sort: '',
   },
   reducers: {
+    updateSort: (state, action) => ({
+      ...state,
+      sort: action.payload,
+    }),
     sortByScore: (state) => {
       state.recipes.sort((a, b) => b.user_ratings.score - a.user_ratings.score);
     },
@@ -68,4 +73,5 @@ export { getRecipes };
 export const {
   sortByScore, sortByPositive, sortByTitle,
   viewByPositive, viewByAll, viewByScore,
+  updateSort,
 } = recipesReducer.actions;

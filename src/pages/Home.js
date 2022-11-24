@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
 
 import {
-  sortByPositive, sortByScore, sortByTitle, viewByAll, viewByPositive, viewByScore,
+  sortByPositive, sortByScore, sortByTitle, viewByAll, viewByPositive, viewByScore, updateSort,
 } from '../redux/recipes/recipesSlice';
 import RecipePreview from '../components/RecipePreview';
 import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
   const {
-    recipes, noResults, loading, view,
+    recipes, noResults, loading, view, sort,
   } = useSelector((state) => state.persistedReducer);
   const dispatch = useDispatch();
 
@@ -28,6 +28,25 @@ const Home = () => {
     </Row>
   ));
 
+  const handleSort = (e) => {
+    switch (e.target.name) {
+      case 'positive':
+        dispatch(sortByPositive());
+        dispatch(updateSort('positive'));
+        break;
+      case 'score':
+        dispatch(sortByScore());
+        dispatch(updateSort('score'));
+        break;
+      case 'title':
+        dispatch(sortByTitle());
+        dispatch(updateSort('title'));
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div>
       <SearchRecipe />
@@ -35,9 +54,9 @@ const Home = () => {
         <Row className="bg-fuchsia p-3 border border-light rounded">
           <Col sm={6} className="sort-buttons">
             <p>Sort by: </p>
-            <Button variant="light" type="button" onClick={() => dispatch(sortByTitle())}>A-Z</Button>
-            <Button variant="light" type="button" onClick={() => dispatch(sortByScore())}>Higher score</Button>
-            <Button variant="light" type="button" onClick={() => dispatch(sortByPositive())}>Most popular</Button>
+            <Button variant={sort === 'title' ? 'dark' : 'light'} type="button" name="title" onClick={handleSort}>A-Z</Button>
+            <Button variant={sort === 'score' ? 'dark' : 'light'} type="button" name="score" onClick={handleSort}>Higher score</Button>
+            <Button variant={sort === 'positive' ? 'dark' : 'light'} type="button" name="positive" onClick={handleSort}>Most popular</Button>
           </Col>
           <Col sm={6} className="">
             <p>View stats: </p>
