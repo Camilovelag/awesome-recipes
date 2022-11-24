@@ -23,7 +23,16 @@ const apiRecipes = async (search) => {
     instructions: recipe.instructions || [{ display_text: 'No instructions available' }],
     ingredients: recipe.sections || [],
   }));
-  return recipes.filter((recipe) => recipe.user_ratings !== undefined);
+  return recipes.filter((recipe) => recipe.user_ratings !== undefined)
+    .sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
 };
 
 export default apiRecipes;

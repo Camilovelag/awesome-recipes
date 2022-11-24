@@ -4,7 +4,7 @@ import {
   Form, Button, Col, Row,
 } from 'react-bootstrap';
 import { BiSearch } from 'react-icons/bi';
-import { getRecipes, updateSort } from '../redux/recipes/recipesSlice';
+import { getRecipes } from '../redux/recipes/recipesSlice';
 
 const SearchRecipe = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const SearchRecipe = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(getRecipes(search.title));
-    dispatch(updateSort(''));
     e.target.reset();
   };
 
