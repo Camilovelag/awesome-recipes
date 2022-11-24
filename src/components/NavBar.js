@@ -1,20 +1,30 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const NavBar = () => (
-  <header>
-    <Navbar bg="light" expand="lg">
-      <ul className="navbar-links">
-        <li>
-          <NavLink to="/home">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/about">About</NavLink>
-        </li>
-      </ul>
-    </Navbar>
-  </header>
+const NavigationBar = () => (
+  <Navbar className="bg-fuchsia" expand="md">
+    <Container fluid>
+      <LinkContainer to="/">
+        <Navbar.Brand>Your Awesome Recipes</Navbar.Brand>
+      </LinkContainer>
+      <Navbar.Toggle aria-controls="navbarScroll" />
+      <Navbar.Collapse id="navbarScroll">
+        <Nav
+          className="me-auto my-2 my-lg-0"
+          style={{ maxHeight: '100px' }}
+          navbarScroll
+        >
+          <LinkContainer to="/home">
+            <Nav.Link eventKey="1">Home</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/about">
+            <Nav.Link eventKey="2">About</Nav.Link>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
 );
 
-export default NavBar;
+export default NavigationBar;

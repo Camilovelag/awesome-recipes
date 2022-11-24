@@ -1,14 +1,9 @@
-.App {
-  text-align: center;
+html * {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* background-color: #000; */
+  /* color: #fff; */
 }
 
-.back {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: red;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  padding: 1rem;
+.bg-fuchsia {
+  background-color: #ff0080;
 }

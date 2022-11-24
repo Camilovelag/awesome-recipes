@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import {
+  Form, Button, Col, Row, Container,
+} from 'react-bootstrap';
+import { BiSearch } from 'react-icons/bi';
 import { getRecipes } from '../redux/recipes/recipesSlice';
 
 const SearchRecipe = () => {
@@ -21,13 +24,29 @@ const SearchRecipe = () => {
   };
 
   return (
-    <div>
-      <h2>What are you looking for...</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="title" onChange={handleChange} placeholder="Search recipe" required />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <Container className="search-bar bg-fuchsia pb-3">
+      <p>Today I&apos;m tempted for...</p>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Row className="justify-content-start">
+            <Col xs={9}>
+              <Form.Control
+                type="text"
+                name="title"
+                onChange={handleChange}
+                placeholder="Search recipe"
+                required
+              />
+            </Col>
+            <Col>
+              <Button type="submit" variant="light">
+                <BiSearch />
+              </Button>
+            </Col>
+          </Row>
+        </Form.Group>
+      </Form>
+    </Container>
   );
 };
 

@@ -28,7 +28,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home</h1>
       <SearchRecipe />
       {recipes.length > 0 && loading === false && (
         <div className="info">
@@ -39,16 +38,18 @@ const Home = () => {
             <button type="button" onClick={() => dispatch(sortByPositive())}>Most popular</button>
           </div>
           <div className="view-buttons">
-            <p>View: </p>
+            <p>View stats: </p>
             <button type="button" onClick={() => dispatch(viewByAll())}>All</button>
             <button type="button" onClick={() => dispatch(viewByScore())}>Score</button>
             <button type="button" onClick={() => dispatch(viewByPositive())}>Rating</button>
           </div>
-          {recipesList}
         </div>
       )}
       <div>{loading && (<span>Loading, please wait...</span>)}</div>
       <div>{noResults && loading === false && (<span>No results found!</span>)}</div>
+      <div className="recipes-list">
+        {recipesList}
+      </div>
     </div>
   );
 };

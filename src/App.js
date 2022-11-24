@@ -4,13 +4,13 @@ import './App.css';
 import Home from './pages/Home';
 import Recipes from './pages/Recipes';
 import About from './pages/About';
-import NavBar from './components/NavBar';
+import NavigationBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <NavigationBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
