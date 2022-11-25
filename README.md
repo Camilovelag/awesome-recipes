@@ -67,7 +67,7 @@ This is a simple recipe app that allows you to search for a delightful recipe by
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Awesome Recipes(link)](https://southamerica-countries.netlify.app/)
+- [Awesome Recipes(link)](https://camilovelag-awesome-recipes.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
