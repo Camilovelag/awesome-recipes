@@ -8,7 +8,7 @@ import {
 import {
   sortByPositive, sortByScore, sortByTitle, viewByAll, viewByPositive, viewByScore, updateSort,
 } from '../redux/recipes/recipesSlice';
-import RecipePreview from '../components/RecipePreview';
+import RecipePreview from '../components/RecipePrev';
 import SearchRecipe from '../components/SearchRecipe';
 
 const Home = () => {
