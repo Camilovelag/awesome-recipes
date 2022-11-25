@@ -64,6 +64,7 @@ This is a simple recipe app that allows you to search for a delightful recipe by
 - Choose a recipe based on their popularity and ratings.
 - Sort recipes by alphabetical order, popularity and ratings.
 - See the recipe details (ingredients, instructions, etc).
+- See information about the app.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
