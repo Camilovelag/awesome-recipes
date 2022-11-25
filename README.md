@@ -67,7 +67,8 @@ This is a simple recipe app that allows you to search for a delightful recipe by
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Awesome Recipes(link)](https://camilovelag-awesome-recipes.netlify.app/)
+- Awesome Recipes Demo [link](https://camilovelag-awesome-recipes.netlify.app/)
+- Video-tutorial [link](https://www.loom.com/share/16cac3403bb84949b6aa9b9eeced91cb)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
