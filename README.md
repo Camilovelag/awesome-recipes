@@ -43,8 +43,10 @@ This is a simple recipe app that allows you to search for a delightful recipe by
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://reactjs.org/">React</a></li>
     <li><a href="https://redux.js.org/">Redux</a></li>
+    <li><a href="https://react-bootstrap.github.io/">React-Bootstrap</a></li>
+    <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap 5</a></li>
 
   </ul>
 </details>
