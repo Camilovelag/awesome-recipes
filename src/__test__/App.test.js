@@ -16,22 +16,6 @@ describe('App ', () => {
     expect(result).toBeInTheDocument();
   });
 
-  test('renders no recipes found', async () => {
-    renderWithProviders(<App />);
-
-    const home = screen.getByText(/Home/i);
-    fireEvent.click(home);
-    const input = screen.getByPlaceholderText(/type a dish name/i);
-    const submit = document.getElementById('submit-btn');
-    fireEvent.change(input, { target: { value: 'aaa' } });
-    fireEvent.click(submit);
-
-    const result = await screen.findByText(/home/i);
-    expect(result).toBeInTheDocument();
-
-    screen.debug();
-  });
-
   test('renders About page', () => {
     renderWithProviders(<App />);
 
