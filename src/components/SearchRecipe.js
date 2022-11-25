@@ -34,11 +34,12 @@ const SearchRecipe = () => {
               name="title"
               onChange={handleChange}
               placeholder="type a dish name (e.g. burritos)"
+              aria-label="search bar"
               required
             />
           </Col>
           <Col>
-            <Button type="submit" variant="light">
+            <Button id="submit-btn" type="submit" variant="light">
               <BiSearch />
             </Button>
           </Col>

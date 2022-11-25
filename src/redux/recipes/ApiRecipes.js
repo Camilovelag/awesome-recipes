@@ -24,15 +24,7 @@ const apiRecipes = async (search) => {
     ingredients: recipe.sections || [],
   }));
   return recipes.filter((recipe) => recipe.user_ratings !== undefined)
-    .sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    });
+    .sort((a, b) => b.user_ratings.count_positive - a.user_ratings.count_positive);
 };
 
 export default apiRecipes;
