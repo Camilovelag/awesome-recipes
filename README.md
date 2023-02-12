@@ -22,7 +22,7 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 [Awesome Recipes] <a name="about-project"></a>
+# 📖 Awesome Recipes <a name="about-project"></a>
 
 This is a simple recipe app that allows you to search for a delightful recipe by name, and choose one based in their poularity and ratings.
 
